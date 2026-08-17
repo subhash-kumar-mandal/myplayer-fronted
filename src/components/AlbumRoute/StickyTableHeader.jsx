@@ -1,5 +1,4 @@
 import { ChevronDown, Clock3 } from "lucide-react";
-import React from "react";
 
 const StickyTableHeader = ({ scrollTop }) => {
   

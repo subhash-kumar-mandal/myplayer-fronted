@@ -5,7 +5,7 @@ import Footer from '../../components/UX/Footer'
 import OverLayerAlbum from '@/components/AlbumRoute/OverLayerAlbum'
 import Hero from '@/components/AlbumRoute/Hero'
 import StickyActionBar from '@/components/AlbumRoute/StickyActionBar'
-import StickyTableHeader from '@/components/albumRoute/StickyTableHeader'
+import StickyTableHeader from '../../components/AlbumRoute/StickyTableHeader'
 import SongSection from '@/components/AlbumRoute/SongSection'
 
 import ScrollDiv from '../../components/AlbumRoute/ScrollDivHori/ScrollDiv'
