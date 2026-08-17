@@ -1,5 +1,5 @@
 import React from 'react'
-import ReusedLoaderShimmer from '../GlobalLoaders/ReusedLoaderShimmer'
+import ReusedLoaderShimmer from '@/Shimmers/Globalloaders/ReusedLoaderShimmer'
 
 export const Hero = () => {
     return (
