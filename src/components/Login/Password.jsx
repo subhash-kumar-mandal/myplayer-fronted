@@ -56,7 +56,7 @@ const PasswordFill = () => {
 
         try {
             setLoading(true)
-            const res = await fetch(URL_OBJECT.BASE_URL + 'user/email/otp-sent', {
+            const res = await fetch(URL_OBJECT.BASE_URL + '/user/email/otp-sent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
