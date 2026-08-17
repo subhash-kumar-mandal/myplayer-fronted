@@ -78,7 +78,7 @@ const StickyActionBar = ({ scrollTop, songs, album }) => {
                         });
 
             dispatch(isSet_Follow_Album(album))
-            console.log(err)
+            
         } finally {
             setloader(false)
         }

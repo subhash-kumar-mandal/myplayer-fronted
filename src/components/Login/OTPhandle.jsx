@@ -98,7 +98,7 @@ const OTPhandle = () => {
             
 
             if (!result.success || !res.ok) throw new Error('Invalid email');
-            console.log(result)
+           
             const user = result.user
             const accessToken = result.accessToken;
             

@@ -128,9 +128,7 @@ const PasswordFill = () => {
                 const user = result?.user??{};
                 const token = result?.accessToken??"";
       
-                console.log(user);
-                console.log(token)
-
+         
 
                 dispatch(setUserObject({user:user,accessToken:token}))
 

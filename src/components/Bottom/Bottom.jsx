@@ -101,7 +101,7 @@ const Bottom = () => {
 
 
 
-    document.title = "Spotify" + " - " + currentPlay.release.name.toUpperCase();
+    document.title = "Ressho" + " - " + currentPlay.release.name.toUpperCase();
 
     navigator.mediaSession.metadata = new MediaMetadata(
       {

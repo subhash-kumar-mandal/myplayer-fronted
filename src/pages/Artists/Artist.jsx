@@ -77,7 +77,7 @@ const Artist = () => {
 
       } catch (err) {
         setError(true)
-        console.log(err)
+        
       }
       finally {
         setFetchData(pre => {

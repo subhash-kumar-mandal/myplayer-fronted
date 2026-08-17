@@ -21,8 +21,7 @@ const Album = () => {
 
   const { accessToken } = useSelector(val => val.userContext);
   const val = useSelector(val => val.contextMenu);
-  // console.log(useSelector(val=>val.player))
-
+  
 
   const { id } = useParams()
 
@@ -50,7 +49,7 @@ const Album = () => {
 
         if (AlbumMap.has(id)) {
           const cacheFind = AlbumMap.get(id);
-          console.log(cacheFind)
+         
           setObjectAlbum(cacheFind.album);
           setFetchSongs(cacheFind.songs);
           setSuggection(cacheFind.sugg);
