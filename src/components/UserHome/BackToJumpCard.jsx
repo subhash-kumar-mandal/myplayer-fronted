@@ -104,6 +104,9 @@ const BackToJumpCard = ({ val, releaseId, isPlaying }) => {
                              navi('/track/'+val._id)
                             e.stopPropagation()
                         }}
+                        style={{
+                            color: ( releaseId === val._id) ? "#3AE176" : ''
+                        }}
                     >
                         {
                             val.name.length > 15 ? val.name.slice(0, 14) + "..." : val.name

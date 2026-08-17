@@ -1,14 +1,17 @@
 
-import { Play } from 'lucide-react'
+import { SongAdd } from '@/utils/playerSlice'
+import { Pause, Play } from 'lucide-react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-const TrackCard = ({ track, token }) => {
+import { motion } from 'motion/react'
+const TrackCard = ({ track, isPlaying, releaseId }) => {
 
     const navi = useNavigate()
-
-    const playHomeHandle = async () => {
-       
+    const dispatch = useDispatch()
+    async function playHome() {
+          dispatch(SongAdd({ id: track._id, song: track }))
     }
+
 
     return (
         <div className="group relative h-full w-[178px] rounded-[5px] cursor-pointer"
@@ -34,42 +37,49 @@ const TrackCard = ({ track, token }) => {
         "
             />
 
-            <div
-                className="
-                      shadow-[0_12px_330px_rgba(0,0,0,0.45)]
-            absolute
-            right-4
-            bottom-18
-            flex
-            justify-center
-            items-center
-            opacity-0
-            z-20
-            bg-(--spotify-green)
-            h-12
-            w-12
-            rounded-full
-            scale-80
-            translate-y-4
-    
-            transition-all
-            
-            hover:bg-[#3AE176]
-            hover:scale-[1.04]
-            cursor-pointer
-            group-hover:scale-100
-            group-hover:opacity-100
-            group-hover:translate-y-0
-            "
+                        <motion.div
 
-            onClick={(e)=>{
-                console.log('click')
-                e.stopPropagation()
-                playHomeHandle()
-            }}
+                whileTap={{ scale: 0.92 }}
+                whileHover={{ scale: 1.08, background: '#05df72' }}
+
+                className="
+                         shadow-[0_12px_330px_rgba(0,0,0,0.45)]
+               absolute
+               right-4
+               bottom-12
+               flex
+               justify-center
+               items-center
+               opacity-0
+               z-20
+               bg-(--spotify-green)
+               h-12
+               w-12
+               rounded-full
+               scale-80
+               translate-y-4
+       
+               transition-all
+               
+               duration-100
+               cursor-pointer
+               group-hover:scale-100
+               group-hover:opacity-100
+               group-hover:translate-y-0
+               "
+                onClick={(e) => {
+                    playHome()
+                    e.stopPropagation()
+                }}
+
             >
-                <Play color="#000000" size={20} className='fill-black ' />
-            </div>
+                {
+                    (releaseId === track._id && isPlaying)
+                        ? <Pause className="text-black fill-black" />
+                        : <Play className="text-black fill-black" />
+                }
+            </motion.div>
+
 
             {/* Content */}
             <div
@@ -92,6 +102,9 @@ const TrackCard = ({ track, token }) => {
                         onClick={(e) => {
                             navi(`/track/${track._id}`)
                             e.stopPropagation()
+                        }}
+                        style={{
+                            color: ( releaseId === track._id) ? "#3AE176" : ''
                         }}
                     >
                         {

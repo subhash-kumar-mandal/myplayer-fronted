@@ -1,14 +1,16 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 import TrackCard from './Card/TrackCard';
 import { useSelector } from 'react-redux';
 const TrackScroll = ({ tracks, headingText }) => {
 
     const { releaseId, isPlaying } = useSelector(val => val.player)
-    const scrollRef = useRef(null)
 
-    
+    const scrollRef = useRef(null);
+
+
+
 
 
     const [canScrollLeft, setCanScrollLeft] = React.useState(false);
@@ -30,7 +32,7 @@ const TrackScroll = ({ tracks, headingText }) => {
         );
     };
 
-    
+
 
 
     return (
@@ -173,9 +175,10 @@ const TrackScroll = ({ tracks, headingText }) => {
                                 return <TrackCard
                                     key={`${val._id}-${index}`}
                                     track={val}
-                                    releaseId={releaseId} isPlaying={isPlaying} 
-                                    
-                                    />
+                                    releaseId={releaseId}
+                                    isPlaying={isPlaying}
+
+                                />
                             })
                         }
 
