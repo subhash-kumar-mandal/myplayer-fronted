@@ -1,4 +1,4 @@
-import { Info, Smartphone } from 'lucide-react'
+import { Info, ShieldAlert, Smartphone } from 'lucide-react'
 import React from 'react'
 import { motion } from 'motion/react'
 import AppleIcon from '../../components/UX/AppleIcon'
@@ -25,26 +25,52 @@ const Login = () => {
 
 
 
+
     async function sentOTP() {
 
         try {
             setLoading(true)
-            const res = await fetch(URL_OBJECT.BASE_URL+'/user/email/otp-sent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-                ,
-                body: JSON.stringify({ email })
+            const res = await fetch(URL_OBJECT.BASE_URL + '/user/password/' + email, {
+                method: 'GET',
+
             });
 
             const result = await res.json();
 
-            if (!result.success || !res.ok) throw new Error('Invalid email');
 
-            navi('/login/otp')
+
+            if (!result.success || !res.ok) throw new Error(result.message);
+
+            navi('/password/fill')
         }
         catch (err) {
+
+            if (err.message === 'user not found') {
+                toast.message(
+                    <div className="flex items-center w-full  px-2  py-2 gap-3">
+
+                        <ShieldAlert size={28} className='text-red-500' />
+                        <div className="flex flex-col">
+                            <span className="font-semibold capitalize text-white">
+                                <span className='text-red-500'>Error</span> user not found
+                            </span>
+
+                            <span className="text-xs capitalize text-(--text-secondary)">
+                                Thanks for Visiting
+                            </span>
+                        </div>
+                    </div>, {
+                    closeButton: true,
+                    position: "bottom-center",
+                    style: {
+                        background: " #121212",
+                        border: "1px solid #ffffff4d",
+                        padding: 0,
+                        margin: 0
+                    },
+                    duration: 2000
+                })
+            }
             setCheckEmailError(true);
 
         } finally {

@@ -307,51 +307,6 @@ const Bottom = () => {
 
 
 
-useEffect(() => {
-  // 1. फंक्शन की परिभाषा
-  async function checkActiveSpeaker(audioContext) {
-    // अगर ऑडियो इंजन सस्पेंडेड है (ब्राउज़र प्राइवेसी के कारण), तो पहले उसे शुरू करें
-    if (audioContext.state === 'suspended') {
-      await audioContext.resume();
-    }
-
-    const activeSinkId = audioContext.sinkId;
-
-    // अगर sinkId खाली स्ट्रिंग "" या undefined है, तो डिफ़ॉल्ट स्पीकर है
-    if (!activeSinkId || activeSinkId === "") {
-      console.log("आवाज़ डिफ़ॉल्ट लैपटॉप स्पीकर से आ रही है।");
-      return;
-    }
-
-    // सभी डिवाइसेस की लिस्ट मंगाकर नाम ढूंढें
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    const currentDevice = devices.find(d => d.deviceId === activeSinkId);
-
-    if (currentDevice) {
-      console.log("वर्तमान में आवाज़ इस डिवाइस से आ रही है: " + currentDevice.label);
-
-      if (currentDevice.label.toLowerCase().includes('bluetooth')) {
-        console.log("यह एक ब्लूटूथ/वायरलेस स्पीकर है!");
-      }
-    } else {
-      console.log("एक्टिव डिवाइस की ID मिल गई है, लेकिन माइक प्राइवेसी अनुमति (Permission) के बिना नाम नहीं दिख रहा।");
-    }
-  }
-
-  // 2. AudioContext ऑब्जेक्ट बनाएं
-  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (AudioContextClass) {
-    const audioCtx = new AudioContextClass();
-
-    // 3. फंक्शन को यहाँ कॉल (Run) करें
-    checkActiveSpeaker(audioCtx);
-
-    // क्लीनअप: कंपोनेंट अनमाउंट होने पर ऑडियो कॉन्टेक्स्ट बंद करें
-    return () => {
-      audioCtx.close();
-    };
-  }
-}, []);
 
 
   function CheckPlay() {

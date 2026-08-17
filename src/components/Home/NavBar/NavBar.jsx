@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Vinyl_icon from '../../ui/vinyl-icon'
 import { isClearUser } from '@/utils/userSlice';
 import { isPlayerClear } from '@/utils/playerSlice';
+import { browser } from 'globals';
+import { URL_OBJECT } from '@/services/fetchHandleAll';
 const NavBar = () => {
 
 
@@ -531,9 +533,22 @@ const NavBar = () => {
             duration-300
             transition-all
             '
-              onClick={() => {
+              onClick={async () => {
+                       
+
+                const res = await fetch(URL_OBJECT.BASE_URL+'/user/logout',{
+                  method:"POST",
+                  credentials:'include'
+                });
+
+                const resu = await res.json();
+                console.log(res)
+
+                
+                
                 dispatch(isClearUser())
                 dispatch(isPlayerClear())
+                
               }}
             >
               logout

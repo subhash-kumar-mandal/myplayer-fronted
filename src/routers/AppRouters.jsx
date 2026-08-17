@@ -43,6 +43,7 @@ import PreviewContext from '../components/Reused/PreviewContext'
 import TremAndCondition from '../components/EmailHandle/TremAndCondition';
 
 import OTPhandle from '../components/Login/OTPhandle';
+import PasswordFill from '@/components/Login/Password';
 
 
 
@@ -50,7 +51,7 @@ import OTPhandle from '../components/Login/OTPhandle';
 const AppRouters = () => {
 
     const { user, accessToken } = useSelector(val => val.userContext);
-    const { isOpen, preViewArray, isGlobal } = useSelector(val => val.preview);
+    const { isOpen, preViewArray } = useSelector(val => val.preview);
 
     const isAuthenticated = !!accessToken;
 
@@ -74,6 +75,7 @@ const AppRouters = () => {
                 <Route path='/signup/email/step-1' element={<CreatePasswordStep_1 />} />
                 <Route path='/signup/email/step-2' element={<UserDetails />} />
                 <Route path='/signup/email/step-3' element={<TremAndCondition />} />
+                <Route path="/password/fill" element={<PasswordFill/>}/>
 
 
 

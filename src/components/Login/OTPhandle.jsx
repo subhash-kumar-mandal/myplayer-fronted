@@ -7,6 +7,7 @@ import Spinner from '../UX/Spinner';
 import { setUserObject } from '../../utils/userSlice';
 import { setClear } from '../../utils/login.Slice';
 import { URL_OBJECT } from '@/services/fetchHandleAll';
+import { toast } from 'sonner';
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const OTPhandle = () => {
@@ -93,6 +94,8 @@ const OTPhandle = () => {
             });
 
             const result = await res.json();
+
+            
 
             if (!result.success || !res.ok) throw new Error('Invalid email');
             console.log(result)

@@ -16,7 +16,8 @@ const userSlice = createSlice({
             const {user,accessToken} = action.payload;
 
             if (!user || !accessToken) return;
-
+       
+            console.log(user,accessToken)
             state.user = user;
             state.accessToken = accessToken;
 
