@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 
-import AdminLayout from '../layouts/Adminlayout';
+import AdminLayout from '@/layouts/AdminLayout';
 import PhoneSignUp from '../pages/PhoneSignup/PhoneSignUp'
 
 
