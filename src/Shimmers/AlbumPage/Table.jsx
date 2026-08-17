@@ -1,6 +1,6 @@
 import { ChevronDown, Clock3 } from "lucide-react";
 import React from "react";
-import ReusedLoaderShimmer from "../GlobalLoaders/ReusedLoaderShimmer";
+import ReusedLoaderShimmer from "../Globalloaders/ReusedLoaderShimmer";
 
 const Table = () => {
 
