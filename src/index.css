@@ -1,0 +1,453 @@
+@import 'tailwindcss';
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+/* 
+    ---break---
+    */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* 
+    ============================
+       Colors
+    ============================
+    */
+
+  --background-secondary: #181818;
+  --background-Three: #000000;
+  --background-primary: #121212;
+  --bg-hover: #2A2A2A;
+  --bg-hover1: #1E1E1E;
+
+  --hover-primary: #ffffff4d;
+  --hover-secondary: #2A2A2A;
+
+  /* extra colors */
+  --background1: rgba(255, 255, 255, 0.05);
+  --background2: rgba(255, 255, 255, 0.08);
+  --background3: rgba(255, 255, 255, 0.12);
+  --background4: rgba(255, 255, 255, 0.30);
+
+  --text-primary: #FFFFFF;
+  --text-primary1: #fff;
+  --text: rgb(255, 255, 255);
+
+  --text-secondary: #b3b3b3;
+  --text-secondary1: #B2B2B2;
+
+  --spotify-green: rgb(30, 215, 96);
+  --spotify-green1: #1ED760;
+
+  --overlay-active: rgba(255, 255, 255, .3);
+
+  /* ==========================
+      BORDER
+  ========================== */
+
+  --border-color: rgba(255, 255, 255, .08);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* ==========================
+      SPACING
+  ========================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* ==========================
+      TRANSITION
+  ========================== */
+
+  --transition: 250ms ease;
+
+  /* Typography */
+
+  --font-primary: "Spotify Mix UI", sans-serif;
+
+  --text-title: 16px;
+  --text-body: 14px;
+  --text-small: 12px;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+  --sidebar-open: 282px;
+  --sidebar-close: 72px;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+}
+
+@font-face {
+  font-family: "Spotify Mix";
+  src: url('./assets/SpotifyMix-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Spotify Mix";
+  src: url('./assets/SpotifyMix-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Spotify Mix";
+  src: url('./assets/SpotifyMix-Bold.ttf');
+  font-weight: 700;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--background-Three);
+  color: var(--text-primary);
+  font-family: "Spotify Mix", sans-serif;
+
+}
+
+.font {
+  font-family: "Spotify Mix", sans-serif;
+}
+
+/* Chrome, Edge, Safari */
+.spotify-scroll::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+
+}
+
+.spotify-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.spotify-scroll::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+}
+
+.spotify-scroll::-webkit-scrollbar-thumb:hover {
+  background: #8a8a8a;
+}
+
+.bar {
+  width: 2px;
+  height: 4px;
+  background: #1ed760;
+  animation: musicBar 0.7s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.bar:nth-child(4) {
+  animation-delay: 0.1s;
+}
+
+@keyframes musicBar {
+  from {
+    height: 3px;
+  }
+
+  to {
+    height: 14px;
+  }
+}
+
+.song-name {
+  white-space: nowrap;
+  animation: marquee 15s infinite;
+}
+
+@keyframes marquee {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  10% {
+    transform: translateX(-20%);
+  }
+
+  20% {
+    transform: translateX(-30%);
+  }
+
+  30% {
+    transform: translateX(-30%);
+  }
+
+  40% {
+    transform: translateX(-20%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  60% {
+    transform: translateX(20%);
+  }
+
+  70% {
+    transform: translateX(10%);
+  }
+
+  80% {
+    transform: translateX(10%);
+  }
+
+  90% {
+    transform: translateX(20%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+}
+
+/* 
+    ---break---
+    */
+
+@theme inline {
+
+  --font-heading: var(--font-sans);
+
+  --font-sans: 'Geist Variable', sans-serif;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+
+  --color-chart-4: var(--chart-4);
+
+  --color-chart-3: var(--chart-3);
+
+  --color-chart-2: var(--chart-2);
+
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+
+  --color-input: var(--input);
+
+  --color-border: var(--border);
+
+  --color-destructive: var(--destructive);
+
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-muted: var(--muted);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-secondary: var(--secondary);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-primary: var(--primary);
+
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-popover: var(--popover);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --color-card: var(--card);
+
+  --color-foreground: var(--foreground);
+
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+
+  --radius-md: calc(var(--radius) * 0.8);
+
+  --radius-lg: var(--radius);
+
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  --radius-3xl: calc(var(--radius) * 2.2);
+
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+}
+
+/* 
+    ---break---
+    */
+
+.dark {
+
+  --background: oklch(0.145 0 0);
+
+  --foreground: oklch(0.985 0 0);
+
+  --card: oklch(0.205 0 0);
+
+  --card-foreground: oklch(0.985 0 0);
+
+  --popover: oklch(0.205 0 0);
+
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.922 0 0);
+
+  --primary-foreground: oklch(0.205 0 0);
+
+  --secondary: oklch(0.269 0 0);
+
+  --secondary-foreground: oklch(0.985 0 0);
+
+  --muted: oklch(0.269 0 0);
+
+  --muted-foreground: oklch(0.708 0 0);
+
+  --accent: oklch(0.269 0 0);
+
+  --accent-foreground: oklch(0.985 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+
+  --input: oklch(1 0 0 / 15%);
+
+  --ring: oklch(0.556 0 0);
+
+  --chart-1: oklch(0.87 0 0);
+
+  --chart-2: oklch(0.556 0 0);
+
+  --chart-3: oklch(0.439 0 0);
+
+  --chart-4: oklch(0.371 0 0);
+
+  --chart-5: oklch(0.269 0 0);
+
+  --sidebar: oklch(0.205 0 0);
+
+  --sidebar-foreground: oklch(0.985 0 0);
+
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+
+  --sidebar-accent: oklch(0.269 0 0);
+
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+
+  --sidebar-ring: oklch(0.556 0 0);
+
+}
+
+/* 
+    ---break---
+    */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+
+  }
+  body {
+    @apply bg-background text-foreground;
+
+  }
+  html {
+    @apply font-sans;
+
+  }
+
+}
+
+.trim-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--spotify-green);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.trim-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--spotify-green);
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}

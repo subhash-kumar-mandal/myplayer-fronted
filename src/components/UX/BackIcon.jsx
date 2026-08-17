@@ -1,0 +1,15 @@
+const BackIcon = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path fill="none" d="M24 0v24H0V0h24z" opacity=".87" />
+      <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z" />
+    </svg>
+  );
+};
+
+export default BackIcon;
