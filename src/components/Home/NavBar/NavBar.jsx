@@ -385,7 +385,7 @@ const NavBar = () => {
          hover:scale-[1.05]
         '
           onClick={() => {
-            navi('/premium')
+            // navi('/premium')
           }}
         >
           Expolore Premium

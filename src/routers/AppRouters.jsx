@@ -81,12 +81,12 @@ const AppRouters = () => {
 
 
 
-                <Route path='/' element={isAuthenticated ? <HomeLoyout /> : <LogoutLayout />} >
+                <Route path='/' element={isAuthenticated ? <HomeLoyout /> : <Navigate to='/signup' replace />} >
 
 
 
 
-                    <Route index element={isAuthenticated ? <UserHome /> : <LogoutHome />} />
+                    <Route index element={isAuthenticated ? <UserHome /> : <Navigate to='/signup' replace />} />
 
 
 
@@ -98,15 +98,15 @@ const AppRouters = () => {
 
 
 
-                    <Route path='likesongs' element={isAuthenticated ? <LikeSongs /> : <Navigate to='/' replace />} />
-                    <Route path='artist/:id' element={isAuthenticated ? <Artist /> : <Navigate to='/' replace />} />
-                    <Route path='album/:id' element={isAuthenticated ? <Album /> : <Navigate to='/' replace />} />
-                    <Route path="track/:id" element={isAuthenticated ? <Track /> : <Navigate to='/' replace />} />
+                    <Route path='likesongs' element={isAuthenticated ? <LikeSongs /> : <Navigate to='/signup' replace />} />
+                    <Route path='artist/:id' element={isAuthenticated ? <Artist /> : <Navigate to='/signup' replace />} />
+                    <Route path='album/:id' element={isAuthenticated ? <Album /> : <Navigate to='/signup' replace />} />
+                    <Route path="track/:id" element={isAuthenticated ? <Track /> : <Navigate to='/signup' replace />} />
 
 
                 </Route>
 
-                <Route path='/admin' element={isAuthenticated && isAdmin ? <AdminLayout /> : <Navigate to="/" replace />} >
+                <Route path='/admin' element={isAuthenticated && isAdmin ? <AdminLayout /> : <Navigate to='/signup' replace />} >
 
                     <Route index element={<Dashboard />} />
 
