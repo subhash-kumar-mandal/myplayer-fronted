@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { isServerFlagSet, setUserEmail } from '../../utils/Eamil.Slice'
 import VinylIcon from '../ui/vinyl-icon'
+import { URL_OBJECT } from '@/services/fetchHandleAll'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,7 +42,7 @@ const SignUp = () => {
 
                 try {
 
-                    const res = await fetch(`http://localhost:2000/user/email/${email}`)
+                    const res = await fetch(URL_OBJECT.BASE_URL+"/user/email/${email}")
                     const result = await res.json()
                     console.log(result)
 
