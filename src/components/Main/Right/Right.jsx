@@ -18,6 +18,7 @@ import CanvasVideo from './RightComponents/CanvasVideo';
 const Right = () => {
 
   const dispatch = useDispatch()
+  const { artistFollow } = useSelector(val => val.userData)
   const { rightSwitch, right, left } = useSelector(val => val.state);
 
   const [onScroll, setOnScroll] = useState(0);
@@ -126,7 +127,7 @@ const Right = () => {
 
 
       {
-         <div
+        <div
           className='w-40 h-full bg-(--background-primary)   
               absolute z-50 rounded-l-2xl  flex items-center
                justify-cente cursor-pointer 
@@ -144,9 +145,9 @@ const Right = () => {
 
 
           style={{
-            
+
             opacity: right === "middle" ? "0" : "1",
-            pointerEvents:right==="middle"?'none':""
+            pointerEvents: right === "middle" ? 'none' : ""
           }}
 
         >
@@ -226,13 +227,13 @@ const Right = () => {
                   :
                   <>
                     <ImageRight song={currentPlay} />
-                    
+
                   </>
 
               }
               <SongInfoRight song={currentPlay} />
-              <ArtistsInfo currentPlay={currentPlay} />
-              <CreditsRight currentPlay={currentPlay} />
+              <ArtistsInfo artistFollow={artistFollow} currentPlay={currentPlay} />
+              <CreditsRight artistFollow={artistFollow} currentPlay={currentPlay} />
               <NextQueue />
 
 

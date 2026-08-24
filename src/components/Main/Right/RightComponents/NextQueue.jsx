@@ -35,7 +35,7 @@ const NextQueue = () => {
                         <div className='flex flex-col'>
                             <h2 className='font-medium  uppercase'>
                                 {
-                                    song.name.length > 20 ? song.name.slice(0, 14)+'...' : song.name
+                                    song.name.length > 20 ? song.name.slice(0, 14) + '...' : song.name
                                 }
                             </h2>
                             <p className='text-[14px] text-(--text-secondary) capitalize'>
@@ -47,9 +47,15 @@ const NextQueue = () => {
                 </div>
 
             </div>
-            : <div>
-                nhi hi kuch bhi bhasi
+            :
+            <div className='w-full  px-2 overflow-hidden  mt-4 mb-2'>
 
+                <div
+                    className='bg-[#1F1F1F]  w-full rounded-[5px] px-3  py-3 '
+                >
+                    Select Any album & track
+
+                </div>
             </div>
     )
 }
