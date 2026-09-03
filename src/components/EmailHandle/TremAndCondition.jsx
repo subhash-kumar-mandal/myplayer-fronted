@@ -9,6 +9,7 @@ import Spinner from '../UX/Spinner'
 import { setUserObject } from '../../utils/userSlice';
 import { ClearAllFrom } from '../../utils/Eamil.Slice';
 import VinylIcon from '../ui/vinyl-icon';
+import { URL_OBJECT } from '@/services/fetchHandleAll';
 
 
 const TremAndCondition = () => {
@@ -32,7 +33,7 @@ const TremAndCondition = () => {
         try {
              
             setLoading(true)
-            const res = await fetch(`http://localhost:2000/user/signup`, {
+            const res = await fetch(URL_OBJECT.BASE_URL+`/user/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials:'include',
